@@ -1,7 +1,10 @@
 import sys,re,itertools,os
 
-#This program assigns paired-end reads to reference or enhanced genome based on mapping quality and mismatches
-#This program compares mapped paired-end reads from two sam files
+#This script is used to detect allele of origin for a RNA-seq read
+# RNA-seq data was aligned to two diffferent strains comprising of parental genome of a cross 
+#This program assigns aligned paired-end reads to a particular based on mapping quality and mismatches
+#This program compares mapped Two sam files for the two strains and then produce new sam files for each of the strain
+#It only seleects reads with high mapping quality that are aligned in conrcondance with the library design
 
 Argument = []
 Argument = sys.argv[1:] 
@@ -37,7 +40,7 @@ def filter_check(list1,list2):
 	read2 = []
 
 	Chromosome = ["chr1","chr2","chr3","chr4","chr5","chr6","chr7","chr8","chr9","chr10","chr11","chr12","chr13","chr14","chr15","chr16","chr17","chr18","chr19","chrX"]
-	Flags = ["99","147","83","163","73","133","69","137","89","165","101","153"]
+	Flags = ["99","147","83","163","73","133","69","137","89","165","101","153"] #Samtools flags
 
 	read1 = list1
 	read2 = list2
